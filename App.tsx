@@ -13,11 +13,14 @@ import { THEME } from "./src/theme";
 import { Loading } from "./src/components/Loading";
 
 import { CartContextProvider } from "./src/contexts/CartContext";
+import { tabUserInfoCreate } from "./src/notifications/notificationsTags";
 
 OneSignal.initialize("731ea887-f9d1-4851-802a-145b765b2139");
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
+
+  tabUserInfoCreate();
 
   return (
     <NativeBaseProvider theme={THEME}>
