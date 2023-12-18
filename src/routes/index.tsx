@@ -15,8 +15,6 @@ export function Routes() {
   const [notification, setNotification] = useState<OSNotification>();
   const { colors } = useTheme();
 
-  console.log("notification: ", notification);
-
   const theme = DefaultTheme;
   theme.colors.background = colors.gray[700];
 

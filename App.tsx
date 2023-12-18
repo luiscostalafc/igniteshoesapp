@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StatusBar } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import {
@@ -24,6 +25,17 @@ export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
 
   tabUserInfoCreate();
+
+  useEffect(() => {
+    const unsubscribe = OneSignal.Notifications.addEventListener(
+      "click",
+      (event) => {
+        console.log("OneSignal: notification clicked:", event);
+      }
+    );
+
+    return () => unsubscribe;
+  }, []);
 
   return (
     <NativeBaseProvider theme={THEME}>
